@@ -268,7 +268,7 @@ declare interface npm$joi$StringSchema extends AnySchema<npm$joi$StringSchema> {
 }
 
 declare module "joi" {
-  declare module.exports: {
+  export type Joi = {
     alternatives(
       type1: npm$joi$Schema,
       type2: npm$joi$Schema,
@@ -305,4 +305,6 @@ declare module "joi" {
       callback?: (err: ValidationError, value: T) => void
     ): ValidationResult<T>
   };
+
+  declare module.exports: Joi;
 }
